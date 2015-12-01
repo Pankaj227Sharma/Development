@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	@Override
+	public List<User> showAllUsers() {
+		return userDao.showAllUsers();
+	}
+
 
 	
 

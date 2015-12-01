@@ -166,6 +166,30 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 
+	@Override
+	public List<User> showAllUsers() {
+		List<User> userList = new ArrayList<User>();
+		if(sessionFactory==null)
+			sessionFactory = HibernateUtil.getSessionFactory();
+		//For the first time insert the default users in the user table
+		session=sessionFactory.openSession();
+		try{
+		session.beginTransaction();
+		
+		Criteria criteria = session.createCriteria(User.class);
+		
+		
+		
+		userList =(List<User>) criteria.list();
+		
+		
+		}finally{
+			session.flush();
+			session.close();
+		}
+		return userList;
+	}
+
 	
 
 }

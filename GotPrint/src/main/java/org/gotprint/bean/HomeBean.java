@@ -23,6 +23,7 @@ public class HomeBean implements Serializable {
 	UserService userService = new UserServiceImpl();
 	private String userData;
 	private User user;
+	private List<User> users= new ArrayList<User>();
 	private boolean displayNotes;
 	private List<Notes> notes = new ArrayList<Notes>();
 	private String userNote;
@@ -39,6 +40,13 @@ public class HomeBean implements Serializable {
 		setDisplayNotes(false);
 		}
 	}
+	
+	public String showUser(){
+		getUsers().addAll(userService.showAllUsers());
+		System.out.println(getUsers());
+		return "users";
+	}
+	
 	
 	public void addUser(){
 		User user = new User();
@@ -174,6 +182,14 @@ public class HomeBean implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 	

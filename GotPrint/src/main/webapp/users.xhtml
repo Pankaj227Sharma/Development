@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<title>GotPrint - Welcome User!</title>
+	<h:outputStylesheet library="css" name="style.css"/>
+	
+</h:head>
+<h:body>
+	<ui:composition template="templates/common.xhtml">
+		<ui:define name="content">
+			<h:outputText value="Users Detail"/>
+					<h:dataTable value="#{homeBean.users}" var="users"
+					   styleClass="userNotes"
+					   headerClass="userNotesHeader"
+					   rowClasses="userNotesOddRow,userNotesEvenRow">
+					   <h:column>    				
+					      <f:facet name="header">User ID</f:facet>    				
+					      #{users.id}
+					   </h:column>
+					   <h:column>    				
+					      <f:facet name="header">First Name</f:facet>    				
+					      #{users.firstName}
+					   </h:column>
+					   <h:column id="cols">
+					      <f:facet name="header">Last Name</f:facet>
+					      #{users.lastName}
+					   </h:column>
+					   <h:column id="cols1">
+					      <f:facet name="header">Email Address</f:facet>
+					      #{users.email}
+					   </h:column>
+					   
+					</h:dataTable>		
+		<h:commandButton value="Go Back" action="hello"/>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+
+
+
+	
+	
+	
+</html>
