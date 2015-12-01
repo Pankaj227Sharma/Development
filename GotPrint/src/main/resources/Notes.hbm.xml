@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	        
+<hibernate-mapping package="org.gotprint.model">
+<class name="Notes" table="USERNOTES">
+	<id name="id" type="int">
+		<column name="ID"/> 
+		<generator class="increment"/>
+	</id> 
+	<many-to-one name="user" class="org.gotprint.model.User" not-null="true"> 
+		<column name="USER"/>	
+	</many-to-one>
+	<property name="title" type="java.lang.String">
+		<column name="TITLE"/>
+	</property>
+	<property name="note" type="java.lang.String">
+		<column name="NOTE"/>
+	</property>
+	<property name="creationTime" type="java.util.Date" >
+		<column name="CREATIONDATE"/>
+	</property>
+	<property name="updateTime" type="java.util.Date">
+		<column name="UPDATIONDATE"/>
+	</property>	
+	
+</class>
+
+</hibernate-mapping>	        
+	        

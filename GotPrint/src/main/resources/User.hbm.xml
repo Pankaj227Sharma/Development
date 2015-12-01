@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	        
+<hibernate-mapping package="org.gotprint.model">
+<class name="User" table="user">
+	<id name="id" type="int">
+		<column name="ID"/> 
+		<generator class="identity"/>
+	</id> 
+	
+	<property name="firstName" type="java.lang.String">
+		<column name="FIRSTNAME"/>
+	</property>
+	<property name="lastName" type="java.lang.String">
+		<column name="LASTNAME"/>
+	</property>
+	<property name="email" type="java.lang.String">
+		<column name="EMAIL"/>
+	</property>
+	<property name="password" type="java.lang.String">
+		<column name="PASSWORD"/>
+	</property>	
+	
+	<list name="userNotes" table="USERNOTES" inverse="true" cascade="save-update" lazy="false" fetch="join">
+		<key column="USER_ID"/>
+		<list-index column="position"/>
+		<one-to-many class="org.gotprint.model.Notes"/>
+	</list>
+	
+	
+</class>
+
+</hibernate-mapping>	        
+	        
