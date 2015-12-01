@@ -20,7 +20,7 @@
 	    		<h:panelGrid id="userInfo" columns="3">
 					<h:outputText value="Enter User Name or Email id"/>	
 					<h:inputText id="userData" value="#{homeBean.userData}"></h:inputText>
-					<h:commandButton value="Check User Availability" styleClass="availability" action="#{homeBean.checkUser}"/>
+					<h:commandButton value="Check User Availability" immediate="true" styleClass="availability" action="#{homeBean.checkUser}"/>
 					
 				</h:panelGrid>
 	    	</panelGroup>
@@ -43,7 +43,7 @@
 					<h:outputText value="Password"/>
 					<h:inputSecret value="#{homeBean.password}"/>		
 					<h:commandButton value="Add User" styleClass="availability" action="#{homeBean.addUser}"/>			
-					<h:commandButton value="Show User" styleClass="availability" immediate="true" action="#{homeBean.showUser}"/>	
+					<h:commandButton value="Show User" styleClass="availability" action="#{homeBean.showUser}"/>	
 				
 				</h:panelGrid>
 				<h:panelGrid column="2">
