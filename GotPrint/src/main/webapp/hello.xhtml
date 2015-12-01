@@ -2,17 +2,84 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>JSF 2.0 Hello World</title>
+	<title>GotPrint - Welcome User!</title>
+	<h:outputStylesheet library="css" name="style.css"/>
+	
 </h:head>
 <h:body>
-	<h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
-	<h:form>
-		<h:inputText value="#{helloBean.name}"></h:inputText>
-		<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
-	</h:form>
+	<ui:composition template="templates/common.xhtml">
+		<ui:define name="content">
+			<h:messages style="color:red;"/>
+	    	<h:form>
+	    	<panelGroup styleClass="userVerificationContainer">
+	    		<h:panelGrid id="userInfo" columns="3">
+					<h:outputText value="Enter User Name or Email id"/>	
+					<h:inputText id="userData" value="#{homeBean.userData}"></h:inputText>
+					<h:commandButton value="Check User Availability" styleClass="availability" action="#{homeBean.checkUser}"/>
+					
+				</h:panelGrid>
+	    	</panelGroup>
+	    	<h:panelGroup styleClass="panelContainer">
+	    		
+				<h:outputText>Add Users</h:outputText>
+				<h:panelGrid columns="2" columnClasses="firstCol,secondCol">
+					<h:outputText value="First Name"/>		
+					<h:inputText value="#{homeBean.firstName}" >						
+					</h:inputText>
+					
+					<h:outputText value="Last Name" />		
+					<h:inputText value="#{homeBean.lastName}" />
+					
+					<h:outputText value="Email"/>		
+					<h:inputText value="#{homeBean.email}" >
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+					</h:inputText>
+					<h:outputText value="Password"/>
+					<h:inputSecret value="#{homeBean.password}"/>		
+					<h:commandButton value="Add User" styleClass="availability" action="#{homeBean.addUser}"/>			
+					
+				
+				</h:panelGrid>
+				<h:panelGrid column="2">
+					<h:outputText value="User Notes:" rendered="#{homeBean.displayNotes}"/>
+					<h:dataTable value="#{homeBean.notes}" var="notes"
+					   styleClass="userNotes"
+					   headerClass="userNotesHeader"
+					   rowClasses="userNotesOddRow,userNotesEvenRow" rendered="#{homeBean.displayNotes}">
+					   <h:column>    				
+					      <f:facet name="header">Title</f:facet>    				
+					      #{notes.title}
+					   </h:column>
+					   <h:column id="cols">
+					      <f:facet name="header">Note</f:facet>
+					      #{notes.note}
+					   </h:column>
+					   <h:column id="cols1">
+					      <f:facet name="header">Creation Date</f:facet>
+					      #{notes.creationTime}
+					   </h:column>
+					   
+					</h:dataTable>			
+				
+				</h:panelGrid>
+				<h:outputText value="Add Notes "></h:outputText>
+				<h:panelGrid column="2">					
+					<h:inputTextarea styleClass="noteArea" value="#{homeBean.userNote}" >
+						<f:validator validatorId="org.gotprint.validators.CheckValidLength"/>
+					</h:inputTextarea>
+					<h:commandButton value="Add Notes" styleClass="availability" action="#{homeBean.addNotes}"/>						
+				</h:panelGrid>
+				
+			</h:panelGroup>
+			
+			</h:form>
+	    </ui:define> 
+	</ui:composition>
 </h:body>
 </html>
