@@ -1,0 +1,93 @@
+body{
+	margin:0px;padding:0px;
+}
+#header{
+  background: linear-gradient(to right, rgba(0,0,0,0), rgba(44,179,0,1));
+  border:0px solid #666; height:60px; left:0; position:fixed; width:100%; top:0;
+}
+#content{
+	
+	margin:0 auto; overflow:auto; padding:80px 0; width:940px;	
+}
+#footer{
+  background: linear-gradient(to right, rgba(0,0,0,0), rgba(44,179,0,1));
+  border:0px solid #666; bottom:0; height:60px; left:0; position:fixed; width:100%; 
+}
+.userVerificationContainer{
+	right:90px;position:fixed;border:1px solid #dddddd;
+	background-color:#abf5a0;
+}
+.panelContainer{
+	right:90px;position:fixed;border:1px solid #dddddd;margin-top:10px;
+	background-color:#abf5a0;
+}
+.userNotes{   
+   
+   border:1px solid #000000;
+   width:300px;
+   height:300px;
+}
+
+.userNotesHeader{
+   text-align:center;	
+   background:none repeat scroll 0 0 #8edf8a;
+   border-bottom:1px solid #008080;  
+   padding:2px;
+   color:#ffffff;	
+}
+
+.addUser{
+	margin-left:200px;
+}
+.firstCol{
+	margin-right:100px;
+	padding-right:100px;
+}
+.secondCol{
+	margin-left:100px;
+	padding-right:100px;
+}
+
+.userNotesOddRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;
+   margin-top:5px;	
+}
+
+.userNotesEvenRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+#cols{
+	margin-left:5px;
+}
+#cols1{
+	margin-left:15px;
+}
+
+.availability {
+    background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #d65636;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+.availability:hover {
+    border: none;
+    background:#c6b74f;
+    box-shadow: 0px 0px 1px #777;
+}
+
+
+.noteArea{
+	width:200px;
+	height:100px;
+	margin-left:0px;
+	padding-left:0px;
+	
+}
